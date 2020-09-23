@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock Paper Scissors</title>
+    </head>
+    <body>
+        <script>
+            // function that adds sleep functionality
+            function sleep(milliseconds) {
+                const date = Date.now();
+                let currentDate = null;
+                do {
+                    currentDate = Date.now();
+                } while (currentDate - date < milliseconds);
+            }
+            // function for the whole game sequence
+            function wholeGame() {
+                // welcome user to game
+                console.log(
+                    "Welcome to Rock Paper Scissors! This is a five round game against the computer. Enter in one of the values 'rock', 'paper', or 'scissors' via the appearing textbox. Good luck!"
+                );
+                // giving the user time to read instructions
+                sleep(5000);
+                // set point default values
+                let playerPoints = 0;
+                let computerPoints = 0;
+                function game() {
+                    for (i = 0; i < 5; i++) {
+                        // set default values
+                        let computerSelection = "";
+                        let playerSelection = prompt(
+                            "Rock, paper or scissors?",
+                            ""
+                        );
+                        let values = ["rock", "paper", "scissors"];
+                        function checkInput(playerSelection) {
+                            // convert input to lowercase
+                            playerSelection = playerSelection.toLowerCase();
+                            // check if they entered right word or not
+                            if (
+                                playerSelection == "rock" ||
+                                playerSelection == "scissors" ||
+                                playerSelection == "paper"
+                            ) {
+                                return playerSelection;
+                            } else {
+                                // don't count as a round and let them enter in a new input
+                                i = i - 1;
+                                console.log(
+                                    "You have not entered in a valid input, please try again."
+                                );
+                                sleep(5000);
+                                playerSelection = prompt("Rock, paper or scissors?", "");
+                                checkInput(playerSelection);
+                            }
+                        }
+                        // return random value for computer playing the game
+                        function computerPlay() {
+                            computerSelection =
+                                values[
+                                    Math.floor(Math.random() * values.length)
+                                ];
+                            return computerSelection;
+                        }
+                        function singleRound(
+                            playerSelection,
+                            computerSelection
+                        ) {
+                            // convert input to lowercase
+                            playerSelection = playerSelection.toLowerCase();
+                            // if the player chose scissors
+                            if (playerSelection == "scissors") {
+                                if (computerSelection == "rock") {
+                                    computerPoints = computerPoints + 1;
+                                    return `You lose! Rock beats scissors. Score: You - ${playerPoints} Computer - ${computerPoints}`;
+                                } else if (computerSelection == "scissors") {
+                                    return `Draw! Scissors does not beat scissors. Score: You - ${playerPoints} Computer - ${computerPoints}`;
+                                } else if (computerSelection == "paper") {
+                                    playerPoints = playerPoints + 1;
+                                    return `You win! Scissors beats paper. Score: You - ${playerPoints} Computer - ${computerPoints}`;
+                                }
+                            }
+                            // if the player chose rock
+                            if (playerSelection == "rock") {
+                                if (computerSelection == "paper") {
+                                    computerPoints = computerPoints + 1;
+                                    return `You lose! Paper beats rock. Score: You - ${playerPoints} Computer - ${computerPoints}`;
+                                } else if (computerSelection == "rock") {
+                                    return `Draw! Rock does not beat rock. Score: You - ${playerPoints} Computer - ${computerPoints}`;
+                                } else if (computerSelection == "scissors") {
+                                    playerPoints = playerPoints + 1;
+                                    return `You win! Rock beats scissors. Score: You - ${playerPoints} Computer - ${computerPoints}`;
+                                }
+                            }
+                            // if the player chose paper
+                            if (playerSelection == "paper") {
+                                if (computerSelection == "scissors") {
+                                    computerPoints = computerPoints + 1;
+                                    return `You lose! Paper beats rock. Score: You - ${playerPoints} Computer - ${computerPoints}`;
+                                } else if (computerSelection == "paper") {
+                                    return `Draw! Paper does not beat paper. Score: You - ${playerPoints} Computer - ${computerPoints}`;
+                                } else if (computerSelection == "rock") {
+                                    playerPoints = playerPoints + 1;
+                                    return `You win! Paper beats rock. Score: You - ${playerPoints} Computer - ${computerPoints}`;
+                                }
+                            }
+                        }
+                        // call the functions to play one round
+                        computerPlay();
+                        checkInput(playerSelection);
+                        console.log(
+                            singleRound(playerSelection, computerSelection)
+                        );
+                    }
+                }
+                game();
+                // if the player has more points than the computer
+                if (playerPoints > computerPoints) {
+                    console.log(
+                        "Congratulations! You won rock paper scissors."
+                    );
+                    // if the player has less points than the computer
+                } else if (playerPoints < computerPoints) {
+                    console.log(
+                        "Oh no! You lost rock paper scissors. Better luck next time!"
+                    );
+                    // if the player has the same amount of points as the computer
+                } else {
+                    console.log(
+                        "Huh. I guess you are as good as a computer, but not any better."
+                    );
+                }
+                playAgain();
+                function playAgain() {
+                    let again = prompt(
+                        "Would you like to play again? Enter 'y' or 'n'."
+                    );
+                    // if they want to play again, reset values and restart game
+                    if (again == "y") {
+                        computerPoints = 0;
+                        playerPoints = 0;
+                        wholeGame();
+                        // if they don't want to play then stop the execution
+                    } else if (again == "n") {
+                        return;
+                        // if they didn't enter the right value, prompt them to enter the right value
+                    } else {
+                        console.log(
+                            "Please enter either 'y' or 'n', indicating if you want to play again or not."
+                        );
+                        sleep(3000);
+                        playAgain();
+                    }
+                }
+            }
+            // play the game
+            wholeGame();
+            /* function computerPlay
+             return random value, either rock, paper or scissors
+             get input from user, put into function to test input
+             call function singleRound() with both inputs
+             if player chooses scissors
+                 if computer chooses rock
+                    "You lose"
+                if computer chooses scissors
+                    "Draw"
+                if computer chooses paper
+                    "You win"
+            if player chooses rock
+                 if computer chooses rock
+                    "Draw"
+                if computer chooses scissors
+                    "You win"
+                if computer chooses paper
+                    "You lose"
+            if player chooses paper
+                 if computer chooses rock
+                    "You win"
+                if computer chooses scissors
+                    "You lose"
+                if computer chooses paper
+                    "Draw"
+            */
+        </script>
+    </body>
+</html>
