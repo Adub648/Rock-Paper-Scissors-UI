@@ -1,0 +1,105 @@
+body {
+    background-color: #000000;
+}
+
+.top {
+    height: 200px;
+}
+
+.title {
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    font-family: "Roboto Mono", sans-serif;
+}
+
+.instructions {
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+}
+
+.selection {
+    position: relative;
+    margin: 0 auto;
+    display: block;
+    width: 595px;
+    color: rgb(48, 56, 56);
+}
+
+.result {
+    position: relative;
+    margin: 0 auto;
+    display: block;
+    width: 600px;
+}
+
+#response {
+    color: white;
+    font-family: "Roboto", sans-serif;
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+.rock {
+    width: 175px;
+    height: 50px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: #ffffff;
+    background-color: #3b404f;
+    border: 1px solid #494f60;
+    border-radius: 4px;
+    font-size: 20px;
+    outline: none;
+}
+
+.rock:hover, .paper:hover, .scissors:hover, .playAgain:hover{
+    transform: scale(1.1);
+    border-color: gray;
+    box-shadow: 0 0 1rem gray;
+}
+
+.paper {
+    width: 175px;
+    height: 50px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: #ffffff;
+    background-color: #3b404f;
+    border: 1px solid #494f60;
+    border-radius: 4px;
+    font-size: 20px;
+    outline: none;
+}
+
+.scissors {
+    width: 175px;
+    height: 50px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: #ffffff;
+    background-color: #3b404f;
+    border: 1px solid #494f60;
+    border-radius: 4px;
+    font-size: 20px;
+    outline: none;
+}
+
+.playAgain {
+    width: 150px;
+    height: 75px;
+    right: 50px;
+    margin-top: 50px;
+    color: #ffffff;
+    background-color: #3b404f;
+    border: 1px solid #494f60;
+    border-radius: 4px;
+    margin-left: 225px;
+    font-size: 20px;
+    outline: none;
+}

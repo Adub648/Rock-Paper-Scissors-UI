@@ -1,4 +1,4 @@
-This is a simple command line game of rock paper scissors for The Odin Project online bootcamp.
+This is a simple ui game of rock paper scissors for The Odin Project online bootcamp.
 
 It works fully from the command line, using pop-ups to get input from the user.
 

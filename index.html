@@ -4,9 +4,11 @@
         <title>Rock Paper Scissors</title>
         <link rel="stylesheet" href="style.css" />
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,700&display=swap" rel="stylesheet">
     </head>
     <body>
         <div class="top">
+            <!-- title + instructions -->
             <h1 class="title">Rock Paper Scissors</h1>
             <p class="instructions">
                 Welcome to Rock Paper Scissors! This is a five round game
@@ -14,11 +16,13 @@
                 'paper', or 'scissors' via the appearing textbox. Good luck!
             </p>
         </div>
+        <!-- selection buttons -->
         <div class="selection">
             <button class="rock">Rock</button>
             <button class="paper">Paper</button>
             <button class="scissors">Scissors</button>
         </div>
+        <!-- response -->
         <div class="result" id="result">
             <p id="response"></p>
         </div>
@@ -158,8 +162,7 @@
                     }
                 }
             };
-            // work out if the player wants to play again
-            // playAgain();
+            // create button for playing again
             function playAgain() {
                 document.querySelector(".rock").disabled = true;
                 document.querySelector(".scissors").disabled = true;
@@ -171,9 +174,12 @@
                 document.getElementById("result").appendChild(newGame);
             }
 
+            // refresh the page
             function refreshPage() {
                 window.location.reload(true);
             }
+
+            // psuedocode
             /* function computerPlay
              return random value, either rock, paper or scissors
              get input from user, put into function to test input
